@@ -1,0 +1,138 @@
+# To run from command line:
+# >python test_script.py
+#
+# To run in an ipython shell:
+# >ipython --profile=scripts
+# >exec(open('test_script.py').read())  
+
+# Load modules
+from loadmodules import *
+
+target_gas_mass = 3.74806e-06
+hubbleparam = 0.67769999999999997
+select_halo = 6
+snap = 127
+
+
+sim_path = '/cds/kravtsov/csimpson/Simulations/Auriga/'
+path = sim_path+'level4_MHD/halo_'+str(select_halo)+'/output/'
+
+
+# Load data.  This call by default converts units to phyical units (so removes factors of a and h).
+sf = load_subfind(snap,dir=path,hdf5=True)
+
+# Print some information about fields
+
+#print('List of field keys in this catalog:')
+#for fld in sf.data.keys():
+#    print(fld)
+
+#print('This is a list of fields that the keys correspond to')
+#for cnv in sf.hdf5_name_conversion:
+#    print(cnv)
+
+# Print some metadata packaged with the catalog
+
+print('Redshift:',sf.redshift)
+print('h:',sf.hubbleparam)
+print('Number of groups:',sf.totngroups)
+print('Number of subgroups:',sf.totnsubgroups)
+
+# Print some information about the groups and subgroups:
+
+print('The main host is group 0 and it has ',sf.data['fnsh'][0],' subhalos')
+print('The main host has a mass of ',sf.data['fmas'][0]*1e10,' Msun')
+print('Subhalo 0 is the most massive subhalo in group 0 and is the main host:',sf.data['smas'][0]*1e10,' Msun')
+print('Subhalo 1 is the second most massive subhalo in group 0 and is the most massive satellite:',sf.data['smas'][1]*1e10,' Msun')
+print('Subhalo',sf.data['fnsh'][0],'is the the most massive subhalo in group 1:',sf.data['smas'][sf.data['fnsh'][0]]*1e10,' Msun')
+
+
+# Plot stellar mass vs distance from host
+
+# R200 of host
+r200_now = sf.data['frc2'][0]
+
+# Center subhalo positions on the host halo position
+spos_now = sf.data['spos']-sf.data['fpos'][0]
+
+# Compute distance from host
+dist_now = (spos_now[:,0]**2 + spos_now[:,1]**2 + spos_now[:,2]**2)**0.5
+
+# Select subhalos with 500 kpc
+index = where((dist_now < 0.5) & # this selects subhalos within 500 kpc
+              (sf.data['slty'][:,1] > 0)) # this selects subhalos that have dark matter particles
+
+
+# Plot some things!
+figure()
+
+semilogy(dist_now[index]*1e3,sf.data['smas'][index]*1e10,'ko',alpha=0.7,label='subhalo mass')
+semilogy([r200_now*1e3,r200_now*1e3],[1e6,2e12],'b--',lw=2)
+
+# Plot properties of luminous systems stellar mass
+index = where((dist_now < 0.5) & # this selects subhalos within 500 kpc
+              (sf.data['slty'][:,1] > 0) & # this selects subhalos that have dark matter particles
+              (sf.data['slty'][:,4] > 0)) # this selects subhalos with stars (luminous ones)
+
+# There are 6 particle/cell types:
+# 0: gas cells
+# 1: hi-res dark matter particles
+# 2,3: low-res dark matter particles; unfortunately they are missing from the group catalogs (a bug) so you can't tell from 'slty' whether systems are contaminated; I will come up with a fix for you on this
+# 4: star particles
+# 5: black hole particles
+
+# The field 'smit' gives the mass within 2 times the half stellar mass radius for each particle type
+
+semilogy(dist_now[index]*1e3,sf.data['smit'][:,4][index]*1e10,'cH',label= 'stellar mass')
+semilogy(dist_now[index]*1e3,sf.data['smit'][:,0][index]*1e10,'ms',label= 'gas mass')
+semilogy(dist_now[index]*1e3,sf.data['smit'][:,5][index]*1e10,'rP',label= 'black hole mass')
+
+legend(loc=0,numpoints=1)
+xlabel('Distance (kpc)')
+ylabel('Mass (Msun)')
+savefig('MassDistance.pdf',format='pdf')
+
+#Now we can take a look at the snapshot data (this is what the halo catalog is made from)
+
+# Load data.  This call by default converts units to phyical units (so removes factors of a and h).
+s = gadget_readsnap(snap,snappath=path,hdf5=True)
+
+#print('List of field keys in this catalog:')
+#for fld in s.data.keys():
+#    print(fld)
+
+#print('This is a list of fields that the keys correspond to')
+#for cnv in s.hdf5_name_conversion:
+#    print(cnv)
+
+# Make a projection of gas density within r200.  res controls the resolution of the projection. proj=True returns a projection (a column sum along the line of sight in each pixel); proj=False will give you a slice.
+s.plot_Aslice('rho',logplot=True,res=128,proj=True,center=sf.data['fpos'][0],axes=[0,2],box=[r200_now,r200_now,r200_now],colorbar=True)
+savefig('GasDensityProj.pdf',format='pdf')
+
+s.plot_Aslice('rho',logplot=True,res=128,proj=True,center=sf.data['spos'][1],axes=[0,2],box=[0.1,0.1,0.1],colorbar=True)
+savefig('GasDensityProj_subhalo.pdf',format='pdf')
+
+#How old are the stars in subhalo 1?
+isub = 1
+
+#this call assigns to each particle/cell what halo and subhalo it belongs to
+s.calc_sf_indizes( sf, verbose=False ,dosubhalos=True)
+
+
+
+radius = 2.*sf.data['shmt'][isub][4]
+pos = s.data['pos']-sf.data['spos'][isub]
+rp = (pos[:,0]**2 + pos[:,1]**2 + pos[:,2]**2)**0.5
+
+#This selects type 4 particles  within our chosen radius that stars (wind particles have negative ages) and are linked to our chosen subhalo
+istar = where(s.type == 4)
+particle_index = where((rp[istar] <= radius) & (s.data['age'] > 0.) & (s.data['subhalo'][istar] == isub))
+
+# Age is the particle formation time in units of the cosmological scale factor (a = 1/(1+z)).  'gima' is the initial mass of the star particle in the normal mass units (x10^10 Msun)
+particle_isort = np.argsort(s.data['age'][particle_index])
+cumlsum = np.cumsum(s.data['gima'][particle_index][particle_isort])
+figure()
+semilogy((s.data['age'][particle_index][particle_isort])**(-1) - 1.0,cumlsum*1e10,'k--',lw=2)
+xlabel('Redshift')
+ylabel('Cumulative Mass (Msun)')
+savefig('StarFormationHistory.pdf',format='pdf')

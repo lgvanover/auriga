@@ -1,0 +1,30 @@
+Jobid: 657423
+qsub --mode script -n 1 -t 30 -A Auriga -q debug-cache-quad --attrs filesystems=home,eagle -d -A Auriga -n 1 -t 10 ./load_halos.sh
+Mon Jun 05 04:09:16 2023 +0000 (UTC) submitted with cwd set to: /lus/swift/home/lgvanover/intro_scripts
+jobid 657423 submitted from terminal /dev/pts/0
+2023-06-05 04:09:44,987 INFO: Starting Resource_Prologue
+2023-06-05 04:09:44,989 DEBUG: no enabling attribute found
+2023-06-05 04:09:44,989 INFO: Resource_Prologue finished with exit code 0
+Mon Jun 05 04:10:06 2023 +0000 (UTC) 
+Mon Jun 05 04:10:06 2023 +0000 (UTC) Command: '/lus/swift/home/lgvanover/intro_scripts/./load_halos.sh'
+Mon Jun 05 04:10:06 2023 +0000 (UTC) 
+Mon Jun 05 04:10:06 2023 +0000 (UTC) Environment:
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_PARTCORES=64
+Mon Jun 05 04:10:06 2023 +0000 (UTC) SHELL=/bin/bash
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_PROJECT=Auriga
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_PARTNAME=3835
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_JOBID=657423
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_STARTTIME=1685938166
+Mon Jun 05 04:10:06 2023 +0000 (UTC) LOGNAME=lgvanover
+Mon Jun 05 04:10:06 2023 +0000 (UTC) USER=lgvanover
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_ENDTIME=1685938766
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_PARTSIZE=1
+Mon Jun 05 04:10:06 2023 +0000 (UTC) HOME=/home/lgvanover
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_JOBSIZE=1
+Mon Jun 05 04:10:06 2023 +0000 (UTC) COBALT_QUEUE=debug-cache-quad
+Mon Jun 05 04:10:06 2023 +0000 (UTC) 
+Mon Jun 05 04:10:06 2023 +0000 (UTC) Info: stdin received from /dev/null
+Mon Jun 05 04:10:06 2023 +0000 (UTC) Info: stdout sent to /lus/swift/home/lgvanover/intro_scripts/657423.output
+Mon Jun 05 04:10:06 2023 +0000 (UTC) Info: stderr sent to /lus/swift/home/lgvanover/intro_scripts/657423.error
+Mon Jun 05 04:10:06 2023 +0000 (UTC) 
+Mon Jun 05 04:13:26 2023 +0000 (UTC) Info: task completed normally with an exit code of 0; initiating job cleanup and removal
