@@ -1,8 +1,0 @@
-Jobid: 657420
-qsub -I -A Auriga -q debug-cache-quad -n 1 -t 10
-Mon Jun 05 03:26:37 2023 +0000 (UTC) submitted with cwd set to: /lus/swift/home/lgvanover/intro_scripts
-jobid 657420 submitted from terminal /dev/pts/0
-2023-06-05 03:26:54,643 INFO: Starting Resource_Prologue
-2023-06-05 03:26:54,644 DEBUG: no enabling attribute found
-2023-06-05 03:26:54,644 INFO: Resource_Prologue finished with exit code 0
-Mon Jun 05 03:37:21 2023 +0000 (UTC) Info: maximum execution time exceeded; initiating job termination

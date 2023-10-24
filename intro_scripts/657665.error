@@ -1,4 +1,0 @@
-/home/lgvanover/.local/conda/2021-09-22/lib/python3.8/site-packages/gadget_snap.py:663: H5pyDeprecationWarning: Using astype() as a context manager is deprecated. Slice the returned object instead, like: ds.astype(np.int32)[:10]
-  with dset.astype('uint64'):
-/home/lgvanover/.local/conda/2021-09-22/lib/python3.8/site-packages/gadget_subfind.py:443: H5pyDeprecationWarning: Using astype() as a context manager is deprecated. Slice the returned object instead, like: ds.astype(np.int32)[:10]
-  with dset.astype('int64'):
