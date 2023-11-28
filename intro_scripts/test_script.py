@@ -1,138 +1,74 @@
-# To run from command line:
-# >python test_script.py
-#
-# To run in an ipython shell:
-# >ipython --profile=scripts
-# >exec(open('test_script.py').read())  
-
-# Load modules
 from loadmodules import *
+import pandas as pd
 
 target_gas_mass = 3.74806e-06
 hubbleparam = 0.67769999999999997
-select_halo = 6
 snap = 127
+nhalos = 30
 
+import shutil
+# src =  '/home/lgvanover/intro_scripts/satellite_utilities.py'
+# dst = '/home/lgvanover/arepo-snap-util/satellite_utilities.py'
+# shutil.copyfile(src, dst)
 
-sim_path = '/eagle/projects/Auriga/Auriga/level'+str(sim_level)+'/Original/'
-path = sim_path+'level4/halo_'+str(select_halo)+'/output/'
+import satellite_utilities as sat
 
+def load_halo(select_halo, sim_level):
+    '''
+    creating a df with stats on a select halo's stellar particles, level 3 or level 4
 
-# Load data.  This call by default converts units to phyical units (so removes factors of a and h).
-sf = load_subfind(snap,dir=path,hdf5=True)
+    input:
+        select_halo (int): halo number 
+        sim_level (int): level for auriga simulation. 2, 3, or 4.
+    output:
+        datafram with the median epsilon for each snapshot and its corresponding redshift
+    '''
+    tf0 = time.time()
+    if sim_level == 3:
+        trees_sf1 = '063'
+        snap = 63
+        min_snap = 20
+    elif sim_level == 4:
+        trees_sf1 = '127'
+        snap = 127
+        min_snap = 30
+    
+    path = '/eagle/projects/Auriga/Auriga/level'+str(sim_level)+'/Original/halo_'+str(select_halo)+'/output/'
+    treebase = '/eagle/projects/Auriga/Auriga/level'+str(sim_level)+'/Original/mergertrees/Au-'+str(select_halo)+'/trees_sf1_'+str(trees_sf1)
+    print(treebase)
+    t = load_tree(0,0,base=treebase,verbose=True)
+    ifof = 0
+    snap_numbers0,redshifts0,subfind_indices0,tree_indices0,ff_tree_indices0,fof_indices0 = t.return_subhalo_first_progenitors(0,snap=snap)
 
-# Print some information about fields
+    Z = []
+    Median_Eps = []
 
-#print('List of field keys in this catalog:')
-#for fld in sf.data.keys():
-#    print(fld)
+    for i in list(range(min_snap, snap)):
+    #Load data
+        attrs = ['pos', 'vel', 'mass', 'age', 'id', 'pot', 'sfr']
+        s = gadget_readsnap(i,snappath=path,hdf5=True,loadonlytype=[4],loadonly=attrs)
+        sf = load_subfind(i,dir=path,hdf5=True)
 
-#print('This is a list of fields that the keys correspond to')
-#for cnv in sf.hdf5_name_conversion:
-#    print(cnv)
+        s.calc_sf_indizes(sf)
+        s.select_halo( sf, .1, use_principal_axis=True, use_cold_gas_spin=False, do_rotation=True ,haloid = fof_indices0[ifof])
 
-# Print some metadata packaged with the catalog
+        g = parse_particledata( s, sf, attrs, radialcut = 0.1*sf.data['frc2'][fof_indices0[ifof]] ,docircularities=True)
+        # change flag in prep_data to normbycurve=True for new method
+        g.prep_data(ageingyr=True, normbycurve=True)
 
-print('Redshift:',sf.redshift)
-print('h:',sf.hubbleparam)
-print('Number of groups:',sf.totngroups)
-print('Number of subgroups:',sf.totnsubgroups)
+        sdata = g.sgdata['sdata']
+        eps2 = sdata['eps2']
+        Z.append(sf.redshift)
+        Median_Eps.append(median(eps2))
+    
+    d = {'Redshift': Z, 'Median Epsilon': Median_Eps}
+    df = pd.DataFrame(data=d)
+    return df
 
-# Print some information about the groups and subgroups:
+if __name__ == '__main__':
 
-print('The main host is group 0 and it has ',sf.data['fnsh'][0],' subhalos')
-print('The main host has a mass of ',sf.data['fmas'][0]*1e10,' Msun')
-print('Subhalo 0 is the most massive subhalo in group 0 and is the main host:',sf.data['smas'][0]*1e10,' Msun')
-print('Subhalo 1 is the second most massive subhalo in group 0 and is the most massive satellite:',sf.data['smas'][1]*1e10,' Msun')
-print('Subhalo',sf.data['fnsh'][0],'is the the most massive subhalo in group 1:',sf.data['smas'][sf.data['fnsh'][0]]*1e10,' Msun')
-
-
-# Plot stellar mass vs distance from host
-
-# R200 of host
-r200_now = sf.data['frc2'][0]
-
-# Center subhalo positions on the host halo position
-spos_now = sf.data['spos']-sf.data['fpos'][0]
-
-# Compute distance from host
-dist_now = (spos_now[:,0]**2 + spos_now[:,1]**2 + spos_now[:,2]**2)**0.5
-
-# Select subhalos with 500 kpc
-index = where((dist_now < 0.5) & # this selects subhalos within 500 kpc
-              (sf.data['slty'][:,1] > 0)) # this selects subhalos that have dark matter particles
-
-
-# Plot some things!
-figure()
-
-semilogy(dist_now[index]*1e3,sf.data['smas'][index]*1e10,'ko',alpha=0.7,label='subhalo mass')
-semilogy([r200_now*1e3,r200_now*1e3],[1e6,2e12],'b--',lw=2)
-
-# Plot properties of luminous systems stellar mass
-index = where((dist_now < 0.5) & # this selects subhalos within 500 kpc
-              (sf.data['slty'][:,1] > 0) & # this selects subhalos that have dark matter particles
-              (sf.data['slty'][:,4] > 0)) # this selects subhalos with stars (luminous ones)
-
-# There are 6 particle/cell types:
-# 0: gas cells
-# 1: hi-res dark matter particles
-# 2,3: low-res dark matter particles; unfortunately they are missing from the group catalogs (a bug) so you can't tell from 'slty' whether systems are contaminated; I will come up with a fix for you on this
-# 4: star particles
-# 5: black hole particles
-
-# The field 'smit' gives the mass within 2 times the half stellar mass radius for each particle type
-
-semilogy(dist_now[index]*1e3,sf.data['smit'][:,4][index]*1e10,'cH',label= 'stellar mass')
-semilogy(dist_now[index]*1e3,sf.data['smit'][:,0][index]*1e10,'ms',label= 'gas mass')
-semilogy(dist_now[index]*1e3,sf.data['smit'][:,5][index]*1e10,'rP',label= 'black hole mass')
-
-legend(loc=0,numpoints=1)
-xlabel('Distance (kpc)')
-ylabel('Mass (Msun)')
-savefig('MassDistance.pdf',format='pdf')
-
-#Now we can take a look at the snapshot data (this is what the halo catalog is made from)
-
-# Load data.  This call by default converts units to phyical units (so removes factors of a and h).
-s = gadget_readsnap(snap,snappath=path,hdf5=True)
-
-#print('List of field keys in this catalog:')
-#for fld in s.data.keys():
-#    print(fld)
-
-#print('This is a list of fields that the keys correspond to')
-#for cnv in s.hdf5_name_conversion:
-#    print(cnv)
-
-# Make a projection of gas density within r200.  res controls the resolution of the projection. proj=True returns a projection (a column sum along the line of sight in each pixel); proj=False will give you a slice.
-s.plot_Aslice('rho',logplot=True,res=128,proj=True,center=sf.data['fpos'][0],axes=[0,2],box=[r200_now,r200_now,r200_now],colorbar=True)
-savefig('GasDensityProj.pdf',format='pdf')
-
-s.plot_Aslice('rho',logplot=True,res=128,proj=True,center=sf.data['spos'][1],axes=[0,2],box=[0.1,0.1,0.1],colorbar=True)
-savefig('GasDensityProj_subhalo.pdf',format='pdf')
-
-#How old are the stars in subhalo 1?
-isub = 1
-
-#this call assigns to each particle/cell what halo and subhalo it belongs to
-s.calc_sf_indizes( sf, verbose=False ,dosubhalos=True)
-
-
-
-radius = 2.*sf.data['shmt'][isub][4]
-pos = s.data['pos']-sf.data['spos'][isub]
-rp = (pos[:,0]**2 + pos[:,1]**2 + pos[:,2]**2)**0.5
-
-#This selects type 4 particles  within our chosen radius that stars (wind particles have negative ages) and are linked to our chosen subhalo
-istar = where(s.type == 4)
-particle_index = where((rp[istar] <= radius) & (s.data['age'] > 0.) & (s.data['subhalo'][istar] == isub))
-
-# Age is the particle formation time in units of the cosmological scale factor (a = 1/(1+z)).  'gima' is the initial mass of the star particle in the normal mass units (x10^10 Msun)
-particle_isort = np.argsort(s.data['age'][particle_index])
-cumlsum = np.cumsum(s.data['gima'][particle_index][particle_isort])
-figure()
-semilogy((s.data['age'][particle_index][particle_isort])**(-1) - 1.0,cumlsum*1e10,'k--',lw=2)
-xlabel('Redshift')
-ylabel('Cumulative Mass (Msun)')
-savefig('StarFormationHistory.pdf',format='pdf')
+    halo = sys.argv[1]
+    level = sys.argv[2]
+    print('loading halo '+str(halo)+' level '+str(level))
+    df = load_halo(int(halo), int(level))
+    print(df.head())

@@ -6,6 +6,7 @@ target_gas_mass = 3.74806e-06
 hubbleparam = 0.67769999999999997
 select_halo = 6
 nhalos = 30
+import sys
 
 import shutil
 import satellite_utilities as sat
@@ -136,6 +137,8 @@ def load_halo(select_halo, sim_level, all_halos=False, age_filt=None):
 
         from parallel_decorators import vectorize_parallel
 
+        print("\nDEBUGGING\n")
+
         @vectorize_parallel(method='processes', num_procs=11)
         def slice_normalization(i, esorted, slope, intercept):
 
@@ -143,7 +146,9 @@ def load_halo(select_halo, sim_level, all_halos=False, age_filt=None):
             slice_intercept = intercept[i]
 
             jz_max = (esorted[split_index[i]:split_index[i+1]] - slice_intercept) / slice_slope
+            print(i, jz_max)
             return jz_max 
+        print("\nDEBUGGING\n")
 
         results = array(slice_normalization(arange(len(split_index[0:-1])), E_sorted, slope_E, y_int))
         results = np.concatenate(results).ravel()
@@ -197,4 +202,5 @@ if __name__ == '__main__':
 
     halo = sys.argv[1]
     level = sys.argv[2]
-    load_halo(int(halo), int(level), all_halos=True, age_filt=10)
+    # load_halo(int(halo), int(level), all_halos=True, age_filt=10)
+    df = load_halo(int(halo), int(level))
