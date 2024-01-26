@@ -1,0 +1,642 @@
+loading halo 27 level 3
+/eagle/projects/Auriga/Auriga/level3/Original/mergertrees/Au-27/trees_sf1_063
+Hubble parameter= 0.6777
+There are 1172 trees in file /eagle/projects/Auriga/Auriga/level3/Original/mergertrees/Au-27/trees_sf1_063.0.hdf5
+Loading desc (Descendant) for blockname /Tree0.
+Loading fnum (FileNr) for blockname /Tree0.
+Loading fhfg (FirstHaloInFOFGroup) for blockname /Tree0.
+Loading fpin (FirstProgenitor) for blockname /Tree0.
+Loading fmc2 (Group_M_Crit200) for blockname /Tree0.
+Loading fmm2 (Group_M_Mean200) for blockname /Tree0.
+Loading fmt2 (Group_M_TopHat200) for blockname /Tree0.
+Loading frc2 (Group_R_Crit200) for blockname /Tree0.
+Loading nhfg (NextHaloInFOFGroup) for blockname /Tree0.
+Loading npin (NextProgenitor) for blockname /Tree0.
+Loading snum (SnapNum) for blockname /Tree0.
+Loading sbhm (SubhaloBHMass) for blockname /Tree0.
+Loading sbhd (SubhaloBHMdot) for blockname /Tree0.
+Loading sgmt (SubhaloGasMetallicity) for blockname /Tree0.
+Loading sgmf (SubhaloGasMetallicitySfr) for blockname /Tree0.
+Loading sgnr (SubhaloGrNr) for blockname /Tree0.
+Loading shmt (SubhaloHalfmassRadType) for blockname /Tree0.
+Key SubhaloIDMostBound not found in conversion table, skipping.
+Loading slen (SubhaloLen) for blockname /Tree0.
+Loading slty (SubhaloLenType) for blockname /Tree0.
+Loading smit (SubhaloMassInRadType) for blockname /Tree0.
+Loading smty (SubhaloMassType) for blockname /Tree0.
+Loading sbnr (SubhaloNumber) for blockname /Tree0.
+Loading soty (SubhaloOffsetType) for blockname /Tree0.
+Loading spos (SubhaloPos) for blockname /Tree0.
+Loading ssfr (SubhaloSFR) for blockname /Tree0.
+Loading ssfi (SubhaloSFRinRad) for blockname /Tree0.
+Loading sspi (SubhaloSpin) for blockname /Tree0.
+Loading ssmt (SubhaloStarMetallicity) for blockname /Tree0.
+Loading ssph (SubhaloStellarPhotometrics) for blockname /Tree0.
+Loading svmx (SubhaloVMax) for blockname /Tree0.
+Loading svel (SubhaloVel) for blockname /Tree0.
+Loading svdi (SubhaloVelDisp) for blockname /Tree0.
+galrad= 0.01
+!!! agesel
+Found 6000 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.9262519  12.98533803 12.98449494 ... 12.97828608 12.97450111
+ 12.96764586] 7907
+glb= [12.9262519  12.98533803 12.98449494 ... 12.97828608 12.97450111
+ 12.96764586] 7907
+bidsort lists= 7907 7907
+ 7907
+SNAP 20
+EPS 0.013151028806204392
+galrad= 0.01
+!!! agesel
+Found 3481 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.98991387 13.06944549 12.99205312 ... 12.83490286 12.96993702
+ 12.83092648] 10686
+glb= [12.98991387 13.06944549 12.99205312 ... 12.83490286 12.96993702
+ 12.83092648] 10686
+bidsort lists= 10686 10686
+ 10686
+SNAP 21
+EPS -0.00895253228106933
+galrad= 0.01
+!!! agesel
+Found 1676 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.66507379 12.65250037 12.76097516 ... 12.70349707 12.68994818
+ 12.6592574 ] 3414
+glb= [12.66507379 12.65250037 12.76097516 ... 12.70349707 12.68994818
+ 12.6592574 ] 3414
+bidsort lists= 3414 3414
+ 3414
+SNAP 22
+EPS 0.029424579379281987
+galrad= 0.01
+!!! agesel
+Found 3720 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.66507379 12.56735395 12.91283224 ... 13.0345111  12.84237101
+ 12.48713384] 7089
+glb= [12.66507379 12.56735395 12.91283224 ... 13.0345111  12.84237101
+ 12.48713384] 7089
+bidsort lists= 7089 7089
+ 7089
+SNAP 23
+EPS 0.022823238938484456
+galrad= 0.01
+!!! agesel
+Found 7216 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.61450373 13.5519643  12.68729498 ... 12.31760047 12.3075472
+ 13.26623445] 18788
+glb= [12.61450373 13.5519643  12.68729498 ... 12.31760047 12.3075472
+ 13.26623445] 18788
+bidsort lists= 18788 18788
+ 18788
+SNAP 24
+EPS 0.00588607542168116
+galrad= 0.01
+!!! agesel
+Found 32206 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.85907852 12.01881927 12.45270561 ... 12.68969584 12.15893464
+ 12.84847931] 31283
+glb= [12.85907852 12.01881927 12.45270561 ... 12.68969584 12.15893464
+ 12.84847931] 31283
+bidsort lists= 31283 31283
+ 31283
+SNAP 25
+EPS -0.017432317217711397
+galrad= 0.01
+!!! agesel
+Found 18536 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [11.88200399 12.06899735 12.13424497 ... 12.66546057 12.88098857
+ 12.66391274] 104713
+glb= [11.88200399 12.06899735 12.13424497 ... 12.66546057 12.88098857
+ 12.66391274] 104713
+bidsort lists= 104713 104713
+ 104713
+SNAP 26
+EPS 0.04111423039464575
+galrad= 0.01
+!!! agesel
+Found 23224 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.32210302 12.20734456 12.10919574 ... 11.98631495 12.5257667
+ 11.9984572 ] 102678
+glb= [12.32210302 12.20734456 12.10919574 ... 11.98631495 12.5257667
+ 11.9984572 ] 102678
+bidsort lists= 102678 102678
+ 102678
+SNAP 27
+EPS 0.027764106652530204
+galrad= 0.01
+!!! agesel
+Found 50453 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [12.6467526  11.29623716 12.31993687 ... 12.52692008 12.50951353
+ 12.82024524] 269155
+glb= [12.6467526  11.29623716 12.31993687 ... 12.52692008 12.50951353
+ 12.82024524] 269155
+bidsort lists= 269155 269155
+ 269155
+SNAP 28
+EPS 0.02831158483684696
+galrad= 0.01
+!!! agesel
+Found 136479 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [10.93470593 11.09008988 11.78059752 ... 12.62321439 12.33057174
+ 13.16974123] 922044
+glb= [10.93470593 11.09008988 11.78059752 ... 12.62321439 12.33057174
+ 13.16974123] 922044
+bidsort lists= 922044 922044
+ 922044
+SNAP 29
+EPS 0.1377524980584332
+galrad= 0.01
+!!! agesel
+Found 97624 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [10.94912132 10.91241846 12.21377699 ... 12.18090663 12.22541587
+ 12.19683787] 1237574
+glb= [10.94912132 10.91241846 12.21377699 ... 12.18090663 12.22541587
+ 12.19683787] 1237574
+bidsort lists= 1237574 1237574
+ 1237574
+SNAP 30
+EPS 0.23170676144675834
+galrad= 0.01
+!!! agesel
+Found 175767 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [10.92164554 10.89874369 10.95072709 ... 13.29595243 13.2546055
+ 13.25101897] 1683004
+glb= [10.92164554 10.89874369 10.95072709 ... 13.29595243 13.2546055
+ 13.25101897] 1683004
+bidsort lists= 1683004 1683004
+ 1683004
+SNAP 31
+EPS 0.27379652445139674
+galrad= 0.010713445395231247
+!!! agesel
+Found 137980 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [10.12924554 10.96681913 10.91875785 ... 12.42145612 12.09968476
+ 10.97716255] 2783173
+glb= [10.12924554 10.96681913 10.91875785 ... 12.42145612 12.09968476
+ 10.97716255] 2783173
+bidsort lists= 2783173 2783173
+ 2783173
+SNAP 32
+EPS 0.1174406333326485
+galrad= 0.012063755095005036
+!!! agesel
+Found 144004 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [10.05818397 10.13361589  9.81054658 ... 12.05408944 13.29524076
+ 12.66700616] 3191268
+glb= [10.05818397 10.13361589  9.81054658 ... 12.05408944 13.29524076
+ 12.66700616] 3191268
+bidsort lists= 3191268 3191268
+ 3191268
+SNAP 33
+EPS 0.15629532977974253
+galrad= 0.012819673120975495
+!!! agesel
+Found 352182 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 9.44872457  9.32761174 10.81866986 ... 11.34147122 11.33820318
+ 11.09404538] 4039732
+glb= [ 9.44872457  9.32761174 10.81866986 ... 11.34147122 11.33820318
+ 11.09404538] 4039732
+bidsort lists= 4039732 4039732
+ 4039732
+SNAP 34
+EPS 0.16427253984519086
+galrad= 0.013421575725078584
+!!! agesel
+Found 308928 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 9.01140994  9.02526422  9.02434879 ... 13.25101897 13.06462282
+ 12.78566589] 6084945
+glb= [ 9.01140994  9.02526422  9.02434879 ... 13.25101897 13.06462282
+ 12.78566589] 6084945
+bidsort lists= 6084945 6084945
+ 6084945
+SNAP 35
+EPS 0.17134138354056475
+galrad= 0.013857543468475342
+!!! agesel
+Found 259973 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 9.045546    9.03612335  8.79886133 ... 12.2804144  11.06887774
+ 10.96097066] 7113540
+glb= [ 9.045546    9.03612335  8.79886133 ... 12.2804144  11.06887774
+ 10.96097066] 7113540
+bidsort lists= 7113540 7113540
+ 7113540
+SNAP 36
+EPS 0.2384992110700897
+galrad= 0.01417202353477478
+!!! agesel
+Found 236499 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 8.50711543  8.61340434  8.53857721 ... 11.37419383 11.26874364
+ 11.67828309] 8143857
+glb= [ 8.50711543  8.61340434  8.53857721 ... 11.37419383 11.26874364
+ 11.67828309] 8143857
+bidsort lists= 8143857 8143857
+ 8143857
+SNAP 37
+EPS 0.3254868065627019
+galrad= 0.014603719115257263
+!!! agesel
+Found 163654 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 8.28165268  8.86406326  8.2699705  ...  9.38936594 10.99619965
+ 10.92524196] 8652924
+glb= [ 8.28165268  8.86406326  8.2699705  ...  9.38936594 10.99619965
+ 10.92524196] 8652924
+bidsort lists= 8652924 8652924
+ 8652924
+SNAP 38
+EPS 0.3737719782087743
+galrad= 0.015263019502162934
+!!! agesel
+Found 218235 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 8.86406326  7.81366833  8.28165268 ... 10.23561021 10.27792165
+ 11.69311583] 9474172
+glb= [ 8.86406326  7.81366833  8.28165268 ... 10.23561021 10.27792165
+ 11.69311583] 9474172
+bidsort lists= 9474172 9474172
+ 9474172
+SNAP 39
+EPS 0.42876412489067106
+galrad= 0.01584598422050476
+!!! agesel
+Found 235152 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 7.50831419  7.55478981  7.5137683  ... 12.91242563 12.60573053
+ 12.57944717] 10287440
+glb= [ 7.50831419  7.55478981  7.5137683  ... 12.91242563 12.60573053
+ 12.57944717] 10287440
+bidsort lists= 10287440 10287440
+ 10287440
+SNAP 40
+EPS 0.4761549496336983
+galrad= 0.016709712147712708
+!!! agesel
+Found 157760 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 7.16949217  7.40203895  7.45130254 ... 11.25738435 11.37607381
+ 12.93730201] 11001122
+glb= [ 7.16949217  7.40203895  7.45130254 ... 11.25738435 11.37607381
+ 12.93730201] 11001122
+bidsort lists= 11001122 11001122
+ 11001122
+SNAP 41
+EPS 0.5199260066897343
+galrad= 0.017748309671878817
+!!! agesel
+Found 147126 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 6.86049618  7.16143723  8.06861136 ... 12.92775303  8.95079247
+  8.90608238] 11673794
+glb= [ 6.86049618  7.16143723  8.06861136 ... 12.92775303  8.95079247
+  8.90608238] 11673794
+bidsort lists= 11673794 11673794
+ 11673794
+SNAP 42
+EPS 0.5362039724949438
+galrad= 0.018659479916095734
+!!! agesel
+Found 185821 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 6.72442743  6.84063949  8.00845942 ...  9.96339655 10.26028507
+  9.31187289] 12413284
+glb= [ 6.72442743  6.84063949  8.00845942 ...  9.96339655 10.26028507
+  9.31187289] 12413284
+bidsort lists= 12413284 12413284
+ 12413284
+SNAP 43
+EPS 0.5624390976507093
+galrad= 0.01917719542980194
+!!! agesel
+Found 163141 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 8.50354835  6.81606602  7.59109474 ... 11.75099629 12.45346672
+ 12.95221546] 13095743
+glb= [ 8.50354835  6.81606602  7.59109474 ... 11.75099629 12.45346672
+ 12.95221546] 13095743
+bidsort lists= 13095743 13095743
+ 13095743
+SNAP 44
+EPS 0.5742455647974145
+galrad= 0.019591425359249116
+!!! agesel
+Found 90332 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 7.56065811  7.53895114  6.34734859 ... 11.07669135  9.98899055
+ 10.21077555] 13391788
+glb= [ 7.56065811  7.53895114  6.34734859 ... 11.07669135  9.98899055
+ 10.21077555] 13391788
+bidsort lists= 13391788 13391788
+ 13391788
+SNAP 45
+EPS 0.5971252435985228
+galrad= 0.02005361020565033
+!!! agesel
+Found 113150 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 5.6392601   5.6369851   5.58196643 ... 12.62134347 12.33553123
+ 13.07188744] 13921855
+glb= [ 5.6392601   5.6369851   5.58196643 ... 12.62134347 12.33553123
+ 13.07188744] 13921855
+bidsort lists= 13921855 13921855
+ 13921855
+SNAP 46
+EPS 0.61550196093926
+galrad= 0.020151817798614503
+!!! agesel
+Found 121997 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 5.23899977  5.22372338  5.37294432 ... 12.71293536 12.56497744
+ 11.44805999] 14406881
+glb= [ 5.23899977  5.22372338  5.37294432 ... 12.71293536 12.56497744
+ 11.44805999] 14406881
+bidsort lists= 14406881 14406881
+ 14406881
+SNAP 47
+EPS 0.6457052911977581
+galrad= 0.02033781260251999
+!!! agesel
+Found 107400 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 5.1475629   5.11676082  5.12882567 ...  9.21979747 10.4933714
+ 12.94361182] 14901043
+glb= [ 5.1475629   5.11676082  5.12882567 ...  9.21979747 10.4933714
+ 12.94361182] 14901043
+bidsort lists= 14901043 14901043
+ 14901043
+SNAP 48
+EPS 0.6565348103379972
+galrad= 0.020726265013217927
+!!! agesel
+Found 65792 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 5.11676082  5.20967139  4.62278494 ...  9.80819875 10.12934489
+ 11.2393343 ] 15347195
+glb= [ 5.11676082  5.20967139  4.62278494 ...  9.80819875 10.12934489
+ 11.2393343 ] 15347195
+bidsort lists= 15347195 15347195
+ 15347195
+SNAP 49
+EPS 0.6775587842681421
+galrad= 0.021216727793216705
+!!! agesel
+Found 39958 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 4.31835984  4.27358086  4.2586517  ...  9.08974761 10.35590292
+  9.00933742] 15690696
+glb= [ 4.31835984  4.27358086  4.2586517  ...  9.08974761 10.35590292
+  9.00933742] 15690696
+bidsort lists= 15690696 15690696
+ 15690696
+SNAP 50
+EPS 0.6955111809503307
+galrad= 0.021569372713565828
+!!! agesel
+Found 36211 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 3.97515117  4.36394597  4.031826   ... 13.24299769 12.36527343
+ 13.17905045] 16035393
+glb= [ 3.97515117  4.36394597  4.031826   ... 13.24299769 12.36527343
+ 13.17905045] 16035393
+bidsort lists= 16035393 16035393
+ 16035393
+SNAP 51
+EPS 0.7016940491924618
+galrad= 0.022002491354942325
+!!! agesel
+Found 66923 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [3.96776066 3.80757731 8.43849222 ... 9.16207097 9.16649657 9.18758944] 16508682
+glb= [3.96776066 3.80757731 8.43849222 ... 9.16207097 9.16649657 9.18758944] 16508682
+bidsort lists= 16508682 16508682
+ 16508682
+SNAP 52
+EPS 0.7164631201667646
+galrad= 0.02255939990282059
+!!! agesel
+Found 72232 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 3.51900308  3.33269029  3.35850391 ...  9.29416731  9.06875709
+ 12.46075078] 17060225
+glb= [ 3.51900308  3.33269029  3.35850391 ...  9.29416731  9.06875709
+ 12.46075078] 17060225
+bidsort lists= 17060225 17060225
+ 17060225
+SNAP 53
+EPS 0.7309283671235488
+galrad= 0.023074762523174287
+!!! agesel
+Found 59384 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [3.17542667 3.43720627 3.51900308 ... 9.71597789 9.20615813 8.8698443 ] 17445549
+glb= [3.17542667 3.43720627 3.51900308 ... 9.71597789 9.20615813 8.8698443 ] 17445549
+bidsort lists= 17445549 17445549
+ 17445549
+SNAP 54
+EPS 0.7398329846771221
+galrad= 0.023735012114048007
+!!! agesel
+Found 51951 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 2.67795632  2.70748995  2.75246715 ...  7.50177551  8.31053483
+ 11.05983551] 17933156
+glb= [ 2.67795632  2.70748995  2.75246715 ...  7.50177551  8.31053483
+ 11.05983551] 17933156
+bidsort lists= 17933156 17933156
+ 17933156
+SNAP 55
+EPS 0.7473509972450838
+galrad= 0.02414996773004532
+!!! agesel
+Found 44422 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 2.33339591  2.37159283  2.41290532 ... 13.02742355 12.48772769
+ 11.25963206] 18233909
+glb= [ 2.33339591  2.37159283  2.41290532 ... 13.02742355 12.48772769
+ 11.25963206] 18233909
+bidsort lists= 18233909 18233909
+ 18233909
+SNAP 56
+EPS 0.7516709570788774
+galrad= 0.024438999593257904
+!!! agesel
+Found 59611 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 2.09744323  2.70748995  2.13874372 ... 11.10951407 11.98428355
+ 11.25288322] 18694027
+glb= [ 2.09744323  2.70748995  2.13874372 ... 11.10951407 11.98428355
+ 11.25288322] 18694027
+bidsort lists= 18694027 18694027
+ 18694027
+SNAP 57
+EPS 0.7495304075380547
+galrad= 0.024587810039520264
+!!! agesel
+Found 46145 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 2.09744323  2.14836596  1.70070636 ... 12.9756384  13.0491925
+ 12.61812949] 18901769
+glb= [ 2.09744323  2.14836596  1.70070636 ... 12.9756384  13.0491925
+ 12.61812949] 18901769
+bidsort lists= 18901769 18901769
+ 18901769
+SNAP 58
+EPS 0.7607503083924096
+galrad= 0.02465699464082718
+!!! agesel
+Found 30405 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 1.37312918  1.4108661   1.34510699 ... 12.15228686  9.67301694
+  9.11065519] 19109399
+glb= [ 1.37312918  1.4108661   1.34510699 ... 12.15228686  9.67301694
+  9.11065519] 19109399
+bidsort lists= 19109399 19109399
+ 19109399
+SNAP 59
+EPS 0.7619440253378403
+galrad= 0.024635641276836397
+!!! agesel
+Found 29007 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 1.37312918  1.11828334  1.29381597 ... 12.03757664 13.24064824
+ 13.03521646] 19362253
+glb= [ 1.37312918  1.11828334  1.29381597 ... 12.03757664 13.24064824
+ 13.03521646] 19362253
+bidsort lists= 19362253 19362253
+ 19362253
+SNAP 60
+EPS 0.7677721347856566
+galrad= 0.02467300593852997
+!!! agesel
+Found 25004 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 0.72939831  0.89456086  0.82152433 ...  9.04416291  9.13345895
+ 10.64091435] 19567959
+glb= [ 0.72939831  0.89456086  0.82152433 ...  9.04416291  9.13345895
+ 10.64091435] 19567959
+bidsort lists= 19567959 19567959
+ 19567959
+SNAP 61
+EPS 0.7689419492364
+galrad= 0.02488432079553604
+!!! agesel
+Found 17320 stars.
+Rotated pos.
+Rotated vel.
+Calculating circularities
+dty= [ 0.34175377  0.72939831  0.74366709 ...  9.06474931 12.89144629
+ 12.94046249] 19728489
+glb= [ 0.34175377  0.72939831  0.74366709 ...  9.06474931 12.89144629
+ 12.94046249] 19728489
+bidsort lists= 19728489 19728489
+ 19728489
+SNAP 62
+EPS 0.781353956989536
+saving to /home/lgvanover/intro_scripts/halos/new/level3_halo27.hdf5
+   Snapshot  Redshift  Median Epsilon  Disk Ratio  Lookback Time
+0        20  6.144901        0.013151    0.032317      12.921255
+1        21  5.529766       -0.008953   -0.018287      12.790207
+2        22  4.939381        0.029425    0.085950      12.631922
+3        23  4.428034        0.022823    0.053194      12.459466
+4        24  3.937261        0.005886    0.017739      12.251338

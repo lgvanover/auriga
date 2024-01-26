@@ -1,7 +1,0 @@
-/home/lgvanover/.bashrc: line 1: module: command not found
-/home/lgvanover/.bashrc: line 2: module: command not found
-/home/lgvanover/.bashrc: line 3: conda: command not found
-Traceback (most recent call last):
-  File "/home/lgvanover/intro_scripts/load_new_eps.py", line 1, in <module>
-    from loadmodules import *
-ImportError: bad magic number in 'loadmodules': b'\x03\xf3\r\n'
